@@ -55,6 +55,35 @@ const ListItems = () => {
 }
 
 // SECTION 24:セレクトボックス
+const InputSelectBox = () => {
+  // 状態
+  const [selectedValue, setSelectedValue] = React.useState("HTML");
+
+  const handleChenge = (e: { target: { value: React.SetStateAction<string>; }; }) => {
+    setSelectedValue(e.target.value);
+  };
+
+  return (
+    <div className="App">
+      <p>
+        {/* onChangeでselectedValueが更新されて画面上の表示が変化する */}
+        現在選択されている値:
+        <b>{selectedValue}</b>
+      </p>
+
+        {/* セレクトボックス設置 */}
+        <select value={selectedValue} onChange={handleChenge}>
+          <option value="HTML">HTML</option>
+          <option value="CSS">CSS</option>
+          <option value="JavaScript">JavaScript</option>
+        </select>
+    </div>
+  );
+}
+
+// SECTION 24:ラジオボタン
+
+
 
 
 // MAIN App
@@ -66,6 +95,7 @@ function App() {
       <LoginControl />
       <p/>
       <NameInput />
+      <InputSelectBox />
       <p/>
       <ListItems />
       </header>
